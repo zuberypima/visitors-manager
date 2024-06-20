@@ -1,14 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 
 class AdministratorServices {
-  Future<void> register_Department(String departmentName, code) async {
-    await FirebaseFirestore.instance
-        .collection("Department")
-        .doc(departmentName)
-        .set({
-      "Code": code,
-      "Department": departmentName,
-    });
+  Future<void> register_Department(String departmentName, code, context) async {
+    _showLoadingDialog(context);
+    try {
+      await FirebaseFirestore.instance
+          .collection("Department")
+          .doc(departmentName)
+          .set({
+        "Code": code,
+        "Department": departmentName,
+      });
+    } catch (e) {
+      print(e.toString());
+    }
   }
 
   Future register_Department_Member(String _departmentName, _firstName,
@@ -55,14 +61,33 @@ class AdministratorServices {
     });
   }
 
-  Future<void> accessDenied(
-    String staffMail,accessGiven
-  ) async {
+  Future<void> accessDenied(String staffMail, accessGiven) async {
     await FirebaseFirestore.instance
         .collection("AccessControls")
         .doc(staffMail)
         .update({
       accessGiven: "Denied",
     });
+  }
+
+  void _showLoadingDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      // barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Dialog(
+          child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CircularProgressIndicator(),
+                  SizedBox(width: 20),
+                  Text("Loading..."),
+                ],
+              )),
+        );
+      },
+    );
   }
 }

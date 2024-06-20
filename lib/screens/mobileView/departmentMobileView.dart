@@ -15,29 +15,44 @@ class _DepartmentmobileviewState extends State<Departmentmobileview> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.orangeAccent[100],
       appBar: AppBar(
         title: Text("Departments"),
       ),
-      body:  StreamBuilder<QuerySnapshot>(
-      stream: FirebaseFirestore.instance.collection("collectionPath").snapshots(),
-      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-        if (snapshot.hasError) {
-          return Text('Something went wrong');
-        }
+      body: StreamBuilder<QuerySnapshot>(
+          stream:
+              FirebaseFirestore.instance.collection("Department").snapshots(),
+          builder:
+              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if (snapshot.hasError) {
+              return Text('Something went wrong');
+            }
 
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Text("Loading");
-        }
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Text("Loading");
+            }
 
-        return ListView(
-          children: snapshot.data!.docs.map((DocumentSnapshot document) {
-          Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-            return ListTile(
-              title: Text(data['full_name']),
-              subtitle: Text(data['company']),
+            return ListView(
+              children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                Map<String, dynamic> data =
+                    document.data()! as Map<String, dynamic>;
+                return Card(
+                  child: ListTile(
+                    title: Text(data['Department']),
+                    subtitle: Row(
+                      children: [
+                        Text(
+                          'Code: ',
+                          style: TextStyle(fontWeight: FontWeight.w700),
+                        ),
+                        Text(data['Code']),
+                      ],
+                    ),
+                  ),
+                );
+              }).toList(),
             );
-          }).toList(),
-        );}),
+          }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _registerDepartment();
@@ -74,12 +89,17 @@ class _DepartmentmobileviewState extends State<Departmentmobileview> {
               ),
             ),
             actions: [
-              ElevatedButton(onPressed: () {
-                Navigator.pop(context);
-              }, child: Text("Cancel")),
-              ElevatedButton(onPressed: () {
-                 AdministratorServices().register_Department(_departmentName.text, _departmentCode.text);
-              }, child: Text("Save"))
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text("Cancel")),
+              ElevatedButton(
+                  onPressed: () {
+                    AdministratorServices().register_Department(
+                        _departmentName.text, _departmentCode.text, context);
+                  },
+                  child: Text("Save"))
             ],
           );
         });

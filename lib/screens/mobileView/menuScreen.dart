@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:visitors/screens/mobileView/departmentMobileView.dart';
+import 'package:visitors/screens/mobileView/staffMobileview.dart';
 
 class MainMenuScreen extends StatefulWidget {
   const MainMenuScreen({super.key});
@@ -16,8 +18,18 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, childAspectRatio: 2),
         children: [
-          serviceCard("Staff Management"),
-          serviceCard("Departmants"),
+          InkWell(
+              onTap: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => StaffManagement()));
+              },
+              child: serviceCard("Staff Management")),
+          InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => Departmentmobileview()));
+              },
+              child: serviceCard("Departmants")),
           serviceCard("Visitors Management"),
           serviceCard("Access Service")
         ],

@@ -57,9 +57,8 @@ class _CreateDepartmentPageState extends State<CreateDepartmentPage> {
                       onPressed: () async{
                      await   AdministratorServices().register_Department(
                             departmentNameController.text,
-                            departmentCodeController.text).then((value){
+                            departmentCodeController.text,context);
                               Navigator.pop(context);
-                            });
                       },
                       child: BigText(
                         text: "Register Department",

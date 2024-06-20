@@ -67,7 +67,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               style: TextStyle(fontWeight: FontWeight.w500),
             ),
             CustomTextFormFieldOne(
-              
                 hintText: "mgunda@gmail.com",
                 nameControler: _emailController),
             SizedBox(
