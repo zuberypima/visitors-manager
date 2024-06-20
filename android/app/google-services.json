@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "129071823298",
+    "project_id": "visitors-eb54e",
+    "storage_bucket": "visitors-eb54e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129071823298:android:712660197cea009b197e5b",
+        "android_client_info": {
+          "package_name": "com.example.visitors"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkQ7spyMgoPwqrTiV01yBZ1LQp7UFkVRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
