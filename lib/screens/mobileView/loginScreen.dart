@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:visitors/screens/mobileView/registrationScreen.dart';
+import 'package:visitors/screens/mobileView/services/authServices.dart';
 import 'package:visitors/widget/textFormField.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -10,6 +12,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController _emailController = TextEditingController();
+    TextEditingController _password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,17 +23,13 @@ class _LoginScreenState extends State<LoginScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
-            SizedBox(
-              height: 40
-            ),
+            SizedBox(height: 40),
             Text(
               "Email Address",
               style: TextStyle(fontWeight: FontWeight.w500),
             ),
             CustomTextFormFieldOne(
-                hintText: "master@gmail.com",
-                nameControler: _emailController),
+                hintText: "master@gmail.com", nameControler: _emailController),
             SizedBox(
               height: 10,
             ),
@@ -38,8 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
               style: TextStyle(fontWeight: FontWeight.w500),
             ),
             CustomTextFormFieldOne(
-                hintText: "******",
-                nameControler: _emailController),
+                hintText: "******", nameControler: _password),
             SizedBox(
               height: 30,
             ),
@@ -49,10 +48,22 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: ButtonStyle(
                       backgroundColor:
                           WidgetStatePropertyAll(Colors.orangeAccent),
-                          foregroundColor: WidgetStatePropertyAll(Colors.white)
-                          ),
-                  onPressed: () {},
+                      foregroundColor: WidgetStatePropertyAll(Colors.white)),
+                  onPressed: () {
+                    Authservices().userLogin(context, _emailController.text, _password.text);
+                  },
                   child: Text("Login")),
+            ),
+            Row(
+              children: [
+                Text("I don't have an account"),
+                SizedBox(
+                  width: 10,
+                ),
+                TextButton(onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>RegistrationScreen()));
+                }, child: Text("Register"))
+              ],
             )
           ],
         ),
