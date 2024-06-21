@@ -5,6 +5,7 @@ import 'package:visitors/screens/homepage.dart';
 import 'package:visitors/screens/homescreen.dart';
 import 'package:visitors/screens/mobileView/departmentMobileView.dart';
 import 'package:visitors/screens/mobileView/loginScreen.dart';
+import 'package:visitors/screens/mobileView/profileScreen.dart';
 import 'package:visitors/screens/mobileView/registrationScreen.dart';
 import 'package:visitors/screens/mobileView/staffMobileview.dart';
 import 'package:visitors/screens/provider/dataSelectedPRovider.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:LoginScreen(),
+      home:Profilescreen(),
     );
   }
 }

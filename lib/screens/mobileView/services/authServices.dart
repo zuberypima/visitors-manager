@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:visitors/screens/homepage.dart';
@@ -27,7 +25,6 @@ class Authservices {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailAddress, password: password);
-
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => HomePage()));
     } on FirebaseAuthException catch (e) {
@@ -43,7 +40,6 @@ class Authservices {
    void _showLoadingDialog(BuildContext context) {
     showDialog(
       context: context,
-      // barrierDismissible: false,
       builder: (BuildContext context) {
         return Dialog(
           child: Padding(
