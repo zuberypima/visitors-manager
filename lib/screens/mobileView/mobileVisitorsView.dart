@@ -11,7 +11,10 @@ class _MobileVisitorsViewState extends State<MobileVisitorsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("My visitors"),),
+      backgroundColor: Colors.orange[200],
+      body: Center(
+        child: Text("My visitors"),
+      ),
     );
   }
 }
