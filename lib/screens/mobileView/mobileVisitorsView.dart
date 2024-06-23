@@ -10,11 +10,36 @@ class MobileVisitorsView extends StatefulWidget {
 class _MobileVisitorsViewState extends State<MobileVisitorsView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.orange[200],
-      body: Center(
-        child: Text("My visitors"),
-      ),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+          backgroundColor: Colors.orange[200],
+          appBar: AppBar(
+            bottom: TabBar(
+              tabs: [
+                Tab(
+                  child: Text("Today"),
+                ),
+                Tab(
+                  child: Text("Check In"),
+                ),
+                Tab(
+                  child: Text("Check Out"),
+                )
+              ],
+            ),
+          ),
+          body: TabBarView(children: [
+            Center(
+              child: Text("today"),
+            ),
+            Center(
+              child: Text("check in"),
+            ),
+            Center(
+              child: Text("check out"),
+            ),
+          ])),
     );
   }
 }

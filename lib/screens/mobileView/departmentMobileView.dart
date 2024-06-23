@@ -29,7 +29,9 @@ class _DepartmentmobileviewState extends State<Departmentmobileview> {
             }
 
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Text("Loading");
+              return Center(
+                child: CircularProgressIndicator(),
+              );
             }
 
             return ListView(

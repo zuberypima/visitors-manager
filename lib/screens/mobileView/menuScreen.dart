@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:visitors/screens/mobileView/departmentMobileView.dart';
+import 'package:visitors/screens/mobileView/registerNewVisitor.dart';
 import 'package:visitors/screens/mobileView/staffMobileview.dart';
 
 class MainMenuScreen extends StatefulWidget {
@@ -30,7 +31,14 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
                     builder: (context) => Departmentmobileview()));
               },
               child: serviceCard("Departmants")),
-          serviceCard("Visitors Management"),
+          InkWell(
+            onTap: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => RegisterNewVisitor()));
+            },
+            child: serviceCard("Registor Visitor")),
+                    serviceCard("Visitors Management"),
+
           serviceCard("Access Service")
         ],
       ),

@@ -28,7 +28,7 @@ class _ViewAllStaffMembersState extends State<ViewAllStaffMembers> {
                 popScreen(StaffRegForm(
                     selectedDepartment: widget.selectedDepartment));
               },
-              icon: Icon(Icons.add))
+              icon:const Icon(Icons.add))
         ],
       ),
       body: StreamBuilder<QuerySnapshot>(
