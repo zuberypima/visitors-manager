@@ -38,13 +38,7 @@ class _HomePageState extends State<HomePage> {
                 icon: Icon(Icons.home_max_sharp), label: "Home"),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
           ]),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // normalCallPage();
-          // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CallPage(callID: '123456')));
-        },
-        child: Icon(Icons.call),
-      ),
+     
     );
   }
 }

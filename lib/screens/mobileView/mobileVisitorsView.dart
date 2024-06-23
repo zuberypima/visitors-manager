@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:visitors/screens/checkIn_CheckOut.dart';
 import 'package:visitors/screens/mobileView/visitorsView.dart';
 
 class MobileVisitorsView extends StatefulWidget {
@@ -31,16 +32,9 @@ class _MobileVisitorsViewState extends State<MobileVisitorsView> {
             ),
           ),
           body: TabBarView(children: [
-            // Center(
-            //   child: Text("today"),
-            // ),
             VisitorsView(),
-            Center(
-              child: Text("check in"),
-            ),
-            Center(
-              child: Text("check out"),
-            ),
+            CheckVistors().check_in_visitors(context),
+            CheckVistors().check_Out_visitors(context),
           ])),
     );
   }

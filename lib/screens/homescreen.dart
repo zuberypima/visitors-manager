@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:visitors/screens/provider/widgetprovider.dart';
-import 'package:visitors/widget/receptionNavBar.dart';
 
 
 class HomeMainScreen extends StatefulWidget {
@@ -21,7 +20,7 @@ class _HomeMainScreenState extends State<HomeMainScreen> {
     return Scaffold(
       body: Row(
         children: [
-          LeftNavBar().leftNavBar(context),
+          // LeftNavBar().leftNavBar(context),
           Expanded(
             child: SizedBox(
               width: MediaQuery.of(context).size.width /2.5,

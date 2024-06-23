@@ -49,47 +49,51 @@ class CheckVistors {
     );
   }
 
-  Widget check_Out_visitors() {
-    return StreamBuilder<QuerySnapshot>(
-      stream: FirebaseFirestore.instance
-          .collection('VisitorsOfDepartment')
-          .where("VisitiStatus", isEqualTo: "CheckOut")
-          .snapshots(),
-      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-        if (snapshot.hasError) {
-          return Text('Something went wrong');
-        }
-
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-        return ListView(
-          children: snapshot.data!.docs.map((DocumentSnapshot document) {
-            Map<String, dynamic> data =
-                document.data()! as Map<String, dynamic>;
-            return Card(
-              child: ListTile(
-                title: Text(data['FullName']),
-                subtitle: Text(data['PhoneNumber']),
-                trailing: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStatePropertyAll<Color>(Colors.green),
-                      foregroundColor:
-                          MaterialStatePropertyAll<Color>(Colors.white),
-                    ),
-                    onPressed: () {
-                      ReceptionService()
-                          .visitorStatus(data["PhoneNumber"], "CheckIn");
-                    },
-                    child: Text("Check In")),
-              ),
+  Widget check_Out_visitors(context) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
+      child: StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance
+            .collection('VisitorsOfDepartment')
+            .where("VisitiStatus", isEqualTo: "CheckOut")
+            .snapshots(),
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (snapshot.hasError) {
+            return Text('Something went wrong');
+          }
+      
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
             );
-          }).toList(),
-        );
-      },
+          }
+          return ListView(
+            children: snapshot.data!.docs.map((DocumentSnapshot document) {
+              Map<String, dynamic> data =
+                  document.data()! as Map<String, dynamic>;
+              return Card(
+                child: ListTile(
+                  title: Text(data['FullName']),
+                  subtitle: Text(data['PhoneNumber']),
+                  trailing: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll<Color>(Colors.green),
+                        foregroundColor:
+                            MaterialStatePropertyAll<Color>(Colors.white),
+                      ),
+                      onPressed: () {
+                        ReceptionService()
+                            .visitorStatus(data["PhoneNumber"], "CheckIn");
+                      },
+                      child: Text("Check In")),
+                ),
+              );
+            }).toList(),
+          );
+        },
+      ),
     );
   }
 }

@@ -84,7 +84,6 @@ class _AllTodayVisistsState extends State<AllTodayVisists> {
                     ),
                     trailing: InkWell(
                         onTap: () {
-                          // AssingVisitors().selectDepartMent(context);
                         },
                         child: Text(
                           "CheckIn",
