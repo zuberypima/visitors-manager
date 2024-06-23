@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:visitors/screens/mobileView/callScreen.dart';
 import 'package:visitors/screens/mobileView/services/mobileDataServices.dart';
 import 'package:visitors/screens/provider/widgetprovider.dart';
 import 'package:visitors/screens/staff_reg_form.dart';
@@ -45,35 +46,47 @@ class _ViewAllStaffMembersState extends State<ViewAllStaffMembers> {
             return const Center(child: CircularProgressIndicator());
           }
           // Map the data from the snapshot to create grid items
-          final List<Map<String, dynamic>> data =
-              snapshot.data!.docs.map((DocumentSnapshot document) {
-            return document.data()! as Map<String, dynamic>;
-          }).toList();
-
           return ListView(
-          children: snapshot.data!.docs.map((DocumentSnapshot document) {
-          Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-            return   Card(
-                child: ListTile(
-                  leading: const CircleAvatar(
-                    child: Icon(Icons.person),
-                  ),
-                  title: Text(data['LastName']),
-                  subtitle: Text(data['PhoneNumber']),
-                  trailing: const Text(
-                    "Present",
-                    style: TextStyle(),
+            children: snapshot.data!.docs.map((DocumentSnapshot document) {
+              Map<String, dynamic> data =
+                  document.data()! as Map<String, dynamic>;
+              return Card(
+                child: SizedBox(
+                  height: 100,
+                  child: ListTile(
+                    leading: const CircleAvatar(
+                      child: Icon(Icons.person),
+                    ),
+                    title: Text(data['LastName']),
+                    subtitle: Row(
+                      children: [
+                        Text(data['PhoneNumber']),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        CircleAvatar(
+                            backgroundColor: Colors.green,
+                            child: IconButton(
+                                onPressed: () {
+                                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CallPage(callID: '123456', userName: data['LastName'].toString(),)));
+
+                                },
+                                icon: Icon(
+                                  Icons.call,
+                                  color: Colors.white,
+                                ))),
+                      ],
+                    ),
+                    trailing: Text("Present"),
                   ),
                 ),
               );
-          }).toList(),
-        );
+            }).toList(),
+          );
         },
       ),
     );
   }
-
-
 
   popScreen(String clickedScreen) {
     TextEditingController _emailController = TextEditingController();
@@ -105,7 +118,7 @@ class _ViewAllStaffMembersState extends State<ViewAllStaffMembers> {
                   onPressed: () {
                     Mobiledataservices().register_staff_to_department(
                         _emailController.text, clickedScreen);
-                        Navigator.pop(context);
+                    Navigator.pop(context);
                   },
                   child: Text("Save"))
             ],

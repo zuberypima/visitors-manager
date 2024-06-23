@@ -120,8 +120,8 @@ class _AdministratorAuthScreenState extends State<AdministratorAuthScreen> {
                           ),
                           TextButton(
                               onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => OrgnizationRegister()));
+                                // Navigator.of(context).push(MaterialPageRoute(
+                                //     builder: (context) => OrgnizationRegister()));
                               },
                               child: Text("Register an Organization"))
                         ],

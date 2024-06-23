@@ -6,9 +6,12 @@ import 'package:visitors/screens/homescreen.dart';
 import 'package:visitors/screens/mobileView/departmentMobileView.dart';
 import 'package:visitors/screens/mobileView/loginScreen.dart';
 import 'package:visitors/screens/mobileView/profileScreen.dart';
+import 'package:visitors/screens/mobileView/receptionHomePage.dart';
+import 'package:visitors/screens/mobileView/receptionview/receptionHome.dart';
 import 'package:visitors/screens/mobileView/registrationScreen.dart';
 import 'package:visitors/screens/mobileView/services/authServices.dart';
 import 'package:visitors/screens/mobileView/staffMobileview.dart';
+import 'package:visitors/screens/mobileView/staffView/staffHomePage.dart';
 import 'package:visitors/screens/provider/dataSelectedPRovider.dart';
 import 'package:visitors/screens/provider/widgetprovider.dart';
 import 'package:visitors/signup/auth_services.dart';
@@ -38,23 +41,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-    //  home: FutureBuilder(
-    //         future: Authservices().getCurrentUser(),
-    //         builder: (context, AsyncSnapshot snapshot) {
-    //           if (snapshot.connectionState == ConnectionState.done) {
-    //             if (snapshot.hasData) {
-    //               return  HomePage();
-    //             }
-    //             return LoginScreen();
-    //           }
-    //           return Center(child: CircularProgressIndicator(),);
-        //    })
-     home:HomePage()
-    );
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        //  home: FutureBuilder(
+        //         future: Authservices().getCurrentUser(),
+        //         builder: (context, AsyncSnapshot snapshot) {
+        //           if (snapshot.connectionState == ConnectionState.done) {
+        //             if (snapshot.hasData) {
+        //               return StaffHomeView();
+        //               // HomePage();
+        //             }
+        //             return LoginScreen();
+        //           }
+        //           return Center(child: CircularProgressIndicator(),);
+        //        })
+         home: Receptionhome()
+        );
   }
 }

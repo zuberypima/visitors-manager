@@ -3,20 +3,22 @@ import 'package:visitors/screens/mobileView/callScreen.dart';
 import 'package:visitors/screens/mobileView/menuScreen.dart';
 import 'package:visitors/screens/mobileView/mobileVisitorsView.dart';
 import 'package:visitors/screens/mobileView/profileScreen.dart';
+import 'package:visitors/screens/mobileView/staffView/staffMenu.dart';
+import 'package:visitors/screens/mobileView/staffView/staffVisitorView.dart';
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class StaffHomeView extends StatefulWidget {
+  const StaffHomeView({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<StaffHomeView> createState() => _StaffHomeViewState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _StaffHomeViewState extends State<StaffHomeView> {
   int _selectedScreen = 1;
   List<Widget> screenList = [
-    MobileVisitorsView(),
-    MainMenuScreen(),
+    Staffvisitorview(),
+    StaffMainMenuScreen(),
     Profilescreen()
   ];
   void onSelect(int index) {
@@ -33,18 +35,12 @@ class _HomePageState extends State<HomePage> {
           onTap: onSelect,
           currentIndex: _selectedScreen,
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.group), label: "Visitors"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home_max_sharp), label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.group), label: "My Visitors"),
+             BottomNavigationBarItem(
+                 icon: Icon(Icons.home_max_sharp), label: "Home"),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
           ]),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // normalCallPage();
-          // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CallPage(callID: '123456')));
-        },
-        child: Icon(Icons.call),
-      ),
+     
     );
   }
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:visitors/screens/departmentList.dart';
 import 'package:visitors/screens/provider/widgetprovider.dart';
-import 'package:visitors/screens/roles_and_position.dart';
 import 'package:visitors/screens/view_all_departmetns.dart';
 import 'package:visitors/widget/serviceCard.dart';
 
@@ -40,7 +39,6 @@ class _ServicesDashBoardState extends State<ServicesDashBoard> {
                       Icons.add_business_outlined, "Create Department")),
               InkWell(
                   onTap: () {
-                     provider.getSelectedWidget(RolesAndPositions());
                   },
                   child: ServiceCard().serviceCard(
                       context, Icons.co_present_outlined, "Roles/Position")),

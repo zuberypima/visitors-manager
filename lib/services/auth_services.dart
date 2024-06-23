@@ -1,9 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:visitors/screens/adminiDashBoard.dart';
-import 'package:visitors/screens/receptionScreen.dart';
 
 class AuthenticationServices {
   Future<void> create_organization_account(
@@ -40,8 +37,6 @@ class AuthenticationServices {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: emailAddress, password: password)
           .then((value) {
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => AdminiDashBoardScreen()));
       });
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -65,8 +60,6 @@ CollectionReference collectionReference =FirebaseFirestore.instance.collection("
             String validPassword =data["Password"].toString();
 
         if (passwordCredential ==validPassword) {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => ReceptionScreen()));
         }
         else{
           print("Not valid");

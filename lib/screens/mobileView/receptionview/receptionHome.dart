@@ -3,20 +3,21 @@ import 'package:visitors/screens/mobileView/callScreen.dart';
 import 'package:visitors/screens/mobileView/menuScreen.dart';
 import 'package:visitors/screens/mobileView/mobileVisitorsView.dart';
 import 'package:visitors/screens/mobileView/profileScreen.dart';
+import 'package:visitors/screens/mobileView/receptionview/receptionMenu.dart';
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Receptionhome extends StatefulWidget {
+  const Receptionhome({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Receptionhome> createState() => _ReceptionhomeState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ReceptionhomeState extends State<Receptionhome> {
   int _selectedScreen = 1;
   List<Widget> screenList = [
     MobileVisitorsView(),
-    MainMenuScreen(),
+    ReceptionMainMenuScreen(),
     Profilescreen()
   ];
   void onSelect(int index) {
@@ -37,14 +38,7 @@ class _HomePageState extends State<HomePage> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.home_max_sharp), label: "Home"),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
-          ]),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // normalCallPage();
-          // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CallPage(callID: '123456')));
-        },
-        child: Icon(Icons.call),
-      ),
+          ])
     );
   }
 }

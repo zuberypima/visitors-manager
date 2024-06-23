@@ -11,20 +11,3 @@ void nextScreenReplace(context, page) {
       context, MaterialPageRoute(builder: (context) => page));
 }
 
-void showSnackBar(context, color, message) {
-  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-    content: Text(
-      message,
-      style: TextStyle(
-        fontSize: Dimensions.font14(context),
-      ),
-    ),
-    backgroundColor: primary,
-    duration: Duration(seconds: 20),
-    action: SnackBarAction(
-      label: "OK",
-      onPressed: () {},
-      textColor: textColor,
-    ),
-  ));
-}

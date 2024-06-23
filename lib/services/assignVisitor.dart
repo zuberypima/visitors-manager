@@ -92,7 +92,7 @@ class AssingVisitors {
                               .getSelectedDepartmant(_seleCtedDepartment);
                           Provider.of<DataSelectedProvider>(context,
                                   listen: false)
-                              .getSelectedStaffMember(data['FirstName'].toString());
+                              .getSelectedStaffMember(data['Email'].toString());
 
                           Navigator.pop(context);
                           Navigator.pop(context);

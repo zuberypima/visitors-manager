@@ -5,14 +5,14 @@ import 'package:visitors/screens/mobileView/mobileVisitorsView.dart';
 import 'package:visitors/screens/mobileView/profileScreen.dart';
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Receptionhomepage extends StatefulWidget {
+  const Receptionhomepage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Receptionhomepage> createState() => _ReceptionhomepageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ReceptionhomepageState extends State<Receptionhomepage> {
   int _selectedScreen = 1;
   List<Widget> screenList = [
     MobileVisitorsView(),

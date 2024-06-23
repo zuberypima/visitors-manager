@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:visitors/screens/authscreens/adminiAuthScreen.dart';
-import 'package:visitors/screens/receptionScreen.dart';
 import 'package:visitors/services/auth_services.dart';
 
 class UserAuthScreen extends StatefulWidget {
@@ -180,8 +179,6 @@ class _UserAuthScreenState extends State<UserAuthScreen> {
     await Future.delayed(const Duration(seconds: 3));
     if (!mounted) return;
 
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (contex) => ReceptionScreen()));
     confirmationBox();
   }
 
