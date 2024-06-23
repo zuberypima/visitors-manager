@@ -63,8 +63,8 @@ class AssingVisitors {
               width: 300,
               child: StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance
-                    .collection("DepartmentMembers")
-                    .where("DepartmentId", isEqualTo: _seleCtedDepartment)
+                    .collection("UserDatils")
+                    .where("DepartmentName", isEqualTo: _seleCtedDepartment)
                     .snapshots(),
                 builder: (BuildContext context,
                     AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -73,7 +73,7 @@ class AssingVisitors {
                   }
 
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: Text("Loading"));
+                    return Center(child: CircularProgressIndicator());
                   }
 
                   if(snapshot.data!.docs.isEmpty){
@@ -87,10 +87,10 @@ class AssingVisitors {
                           document.data()! as Map<String, dynamic>;
                       return InkWell(
                         onTap: () {
-                          Provider.of<DataSelectedProviders>(context,
+                          Provider.of<DataSelectedProvider>(context,
                                   listen: false)
                               .getSelectedDepartmant(_seleCtedDepartment);
-                          Provider.of<DataSelectedProviders>(context,
+                          Provider.of<DataSelectedProvider>(context,
                                   listen: false)
                               .getSelectedStaffMember(data['FirstName'].toString());
 

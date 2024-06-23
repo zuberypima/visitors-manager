@@ -19,7 +19,7 @@ class VisitorsDashBoard extends StatefulWidget {
 class _VisitorsDashBoardState extends State<VisitorsDashBoard> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<WidgetProviders>(context);
+    final provider = Provider.of<WidgetProvider>(context);
 
     return Scaffold(
       appBar: AppBar(

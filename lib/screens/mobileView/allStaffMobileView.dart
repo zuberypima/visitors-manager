@@ -18,7 +18,7 @@ class ViewAllStaffMembers extends StatefulWidget {
 class _ViewAllStaffMembersState extends State<ViewAllStaffMembers> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<WidgetProviders>(context);
+    final provider = Provider.of<WidgetProvider>(context);
     return Scaffold(
       backgroundColor: Colors.orangeAccent[100],
       appBar: AppBar(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:visitors/screens/servicesDashboard.dart';
 import 'package:visitors/screens/toDayVisitors.dart';
 
-class WidgetProviders extends ChangeNotifier {
+class WidgetProvider extends ChangeNotifier {
   Widget _selectedScreen = ServicesDashBoard();
 
   Widget get selectedScreen => _selectedScreen;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:visitors/screens/mobileView/visitorsView.dart';
 
 class MobileVisitorsView extends StatefulWidget {
   const MobileVisitorsView({super.key});
@@ -30,9 +31,10 @@ class _MobileVisitorsViewState extends State<MobileVisitorsView> {
             ),
           ),
           body: TabBarView(children: [
-            Center(
-              child: Text("today"),
-            ),
+            // Center(
+            //   child: Text("today"),
+            // ),
+            VisitorsView(),
             Center(
               child: Text("check in"),
             ),

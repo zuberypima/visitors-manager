@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class DataSelectedProviders extends ChangeNotifier {
+class DataSelectedProvider extends ChangeNotifier {
   // Selected departmetn
   String _selectedDepartment = "No selected";
 

@@ -22,7 +22,7 @@ TextEditingController mobileController = TextEditingController();
 class _VisitorRegistorState extends State<VisitorRegistor> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<DataSelectedProviders>(context);
+    final provider = Provider.of<DataSelectedProvider>(context);
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(

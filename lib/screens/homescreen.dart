@@ -16,7 +16,7 @@ bool showTextField = false;
 class _HomeMainScreenState extends State<HomeMainScreen> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<WidgetProviders>(context);
+    final provider = Provider.of<WidgetProvider>(context);
 
     return Scaffold(
       body: Row(

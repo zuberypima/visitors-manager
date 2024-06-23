@@ -25,7 +25,7 @@ TextEditingController mobileController = TextEditingController();
 class _RegisterNewVisitorState extends State<RegisterNewVisitor> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<DataSelectedProviders>(context);
+    final provider = Provider.of<DataSelectedProvider>(context);
     return Scaffold(
       appBar: AppBar(),
       body: Container(

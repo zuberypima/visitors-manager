@@ -6,7 +6,7 @@ import 'package:visitors/screens/visitorsDashboard.dart';
 
 class AdmintNavBar {
   Widget adminiNavBar(context) {
-    final provider = Provider.of<WidgetProviders>(context);
+    final provider = Provider.of<WidgetProvider>(context);
     return Container(
       width: MediaQuery.of(context).size.width / 7,
       color: Colors.cyan,

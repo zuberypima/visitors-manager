@@ -16,7 +16,7 @@ class StaffMembers extends StatefulWidget {
 class _StaffMembersState extends State<StaffMembers> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<WidgetProviders>(context);
+    final provider = Provider.of<WidgetProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.selectedDepartment +"  "+"Members"),

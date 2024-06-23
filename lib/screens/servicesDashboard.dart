@@ -17,7 +17,7 @@ class ServicesDashBoard extends StatefulWidget {
 class _ServicesDashBoardState extends State<ServicesDashBoard> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<WidgetProviders>(context);
+    final provider = Provider.of<WidgetProvider>(context);
     return Scaffold(
     
       appBar: AppBar(

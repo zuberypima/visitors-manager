@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:visitors/screens/homepage.dart';
 
 class Authservices {
+  final FirebaseAuth _auth =FirebaseAuth.instance;
+  Future<User?> getCurrentUser()async{
+    return  _auth.currentUser;
+  }
   Future<void> createUserAccount(context, String emailAddress, password) async {
     _showLoadingDialog(context);
     try {
@@ -35,6 +39,8 @@ class Authservices {
       }
     }
   }
+
+  
 
 
    void _showLoadingDialog(BuildContext context) {

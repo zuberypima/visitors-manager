@@ -15,7 +15,7 @@ bool showTextField = false;
 class _ReceptionScreenState extends State<ReceptionScreen> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<WidgetProviders>(context);
+    final provider = Provider.of<WidgetProvider>(context);
 
     return Scaffold(
       backgroundColor: Colors.grey,

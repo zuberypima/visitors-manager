@@ -13,7 +13,7 @@ class AdminiDashBoardScreen extends StatefulWidget {
 class _AdminiDashBoardScreenState extends State<AdminiDashBoardScreen> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<WidgetProviders>(context);
+    final provider = Provider.of<WidgetProvider>(context);
 
     return Scaffold(
       backgroundColor: Colors.grey,

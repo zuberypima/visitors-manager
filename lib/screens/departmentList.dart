@@ -15,7 +15,7 @@ class DepartMenListtScreens extends StatefulWidget {
 class _DepartMenListtScreensState extends State<DepartMenListtScreens> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<WidgetProviders>(context);
+    final provider = Provider.of<WidgetProvider>(context);
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
