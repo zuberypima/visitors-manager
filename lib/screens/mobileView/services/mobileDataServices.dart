@@ -2,8 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Mobiledataservices {
   Future adduserDetails(
-    String
-    _firstName,
+    String _firstName,
     _lastName,
     _emailAddress,
     _phoneNumber,
@@ -19,6 +18,16 @@ class Mobiledataservices {
       "PhoneNumber": _phoneNumber,
       "StaffId": _staffID,
       "DepartmentName": "NoDepartment",
+    });
+  }
+
+  Future<void> register_staff_to_department(
+      String _emailAddress, _selectedDepartment) async {
+    await FirebaseFirestore.instance
+        .collection("UserDatils")
+        .doc(_emailAddress)
+        .update({
+      "DepartmentName": _selectedDepartment,
     });
   }
 }

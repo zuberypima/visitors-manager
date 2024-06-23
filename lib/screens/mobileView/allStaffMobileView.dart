@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:visitors/screens/mobileView/services/mobileDataServices.dart';
 import 'package:visitors/screens/provider/widgetprovider.dart';
 import 'package:visitors/screens/staff_reg_form.dart';
 import 'package:visitors/widget/textFormField.dart';
@@ -25,16 +26,15 @@ class _ViewAllStaffMembersState extends State<ViewAllStaffMembers> {
         actions: [
           IconButton(
               onPressed: () {
-                popScreen(StaffRegForm(
-                    selectedDepartment: widget.selectedDepartment));
+                popScreen(widget.selectedDepartment);
               },
-              icon:const Icon(Icons.add))
+              icon: const Icon(Icons.add))
         ],
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
-            .collection('DepartmentMembers')
-            .where("DepartmentId", isEqualTo: widget.selectedDepartment)
+            .collection('UserDatils')
+            .where("DepartmentName", isEqualTo: widget.selectedDepartment)
             .snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
@@ -50,38 +50,38 @@ class _ViewAllStaffMembersState extends State<ViewAllStaffMembers> {
             return document.data()! as Map<String, dynamic>;
           }).toList();
 
-          return GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4, mainAxisExtent: 90),
-            itemCount: data.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Card(
+          return ListView(
+          children: snapshot.data!.docs.map((DocumentSnapshot document) {
+          Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
+            return   Card(
                 child: ListTile(
                   leading: const CircleAvatar(
                     child: Icon(Icons.person),
                   ),
-                  title: Text(data[index]['Name']),
-                  subtitle: Text(data[index]['PhoneNumber']),
+                  title: Text(data['LastName']),
+                  subtitle: Text(data['PhoneNumber']),
                   trailing: const Text(
                     "Present",
                     style: TextStyle(),
                   ),
                 ),
               );
-            },
-          );
+          }).toList(),
+        );
         },
       ),
     );
   }
 
-  popScreen(Widget clickedScreen) {
+
+
+  popScreen(String clickedScreen) {
     TextEditingController _emailController = TextEditingController();
     return showDialog(
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text("Add staff Email"),
+            title: Text(clickedScreen),
             content: Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.width / 2.5,
@@ -91,7 +91,7 @@ class _ViewAllStaffMembersState extends State<ViewAllStaffMembers> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomTextFormFieldOne(
-                        hintText: "staff@gmail.com",
+                        hintText: "Staff@gmail.com",
                         nameControler: _emailController)
                   ],
                 ),
@@ -102,7 +102,11 @@ class _ViewAllStaffMembersState extends State<ViewAllStaffMembers> {
                   style: ButtonStyle(
                       backgroundColor: WidgetStatePropertyAll(Colors.green),
                       foregroundColor: WidgetStatePropertyAll(Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Mobiledataservices().register_staff_to_department(
+                        _emailController.text, clickedScreen);
+                        Navigator.pop(context);
+                  },
                   child: Text("Save"))
             ],
           );

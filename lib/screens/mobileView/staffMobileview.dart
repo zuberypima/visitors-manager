@@ -28,7 +28,7 @@ class _StaffManagementState extends State<StaffManagement> {
             }
 
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Text("Loading");
+              return Center(child: CircularProgressIndicator(),);
             }
 
             return ListView(
