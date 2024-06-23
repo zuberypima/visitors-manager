@@ -8,18 +8,20 @@ class VisitorsView extends StatefulWidget {
   @override
   State<VisitorsView> createState() => _VisitorsViewState();
 }
+
 DateTime nowDate = DateTime.now();
 
 class _VisitorsViewState extends State<VisitorsView> {
   @override
   Widget build(BuildContext context) {
-        String formattedDate = DateFormat('dd-MM-yyyy').format(nowDate);
+    String formattedDate = DateFormat('dd-MM-yyyy').format(nowDate);
 
     return Scaffold(
       backgroundColor: Colors.orangeAccent[100],
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
-            .collection("VisitorsOfDepartment").where("Date",isEqualTo: formattedDate)
+            .collection("VisitorsOfDepartment")
+            .where("Date", isEqualTo: formattedDate)
             .snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
