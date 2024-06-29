@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:visitors/screens/departmentList.dart';
 import 'package:visitors/screens/provider/widgetprovider.dart';
 import 'package:visitors/screens/view_all_departmetns.dart';
-import 'package:visitors/widget/serviceCard.dart';
 
 
 class ServicesDashBoard extends StatefulWidget {
@@ -35,21 +34,23 @@ class _ServicesDashBoardState extends State<ServicesDashBoard> {
                                          provider.getSelectedWidget(ViewAllDepartment());
 
                   },
-                  child: ServiceCard().serviceCard(context,
-                      Icons.add_business_outlined, "Create Department")),
+                  // child: ServiceCard().serviceCard(context,
+                  //     Icons.add_business_outlined, "Create Department")
+                      ),
               InkWell(
                   onTap: () {
                   },
-                  child: ServiceCard().serviceCard(
-                      context, Icons.co_present_outlined, "Roles/Position")),
+                    // child: ServiceCard().serviceCard(
+                    //     context, Icons.co_present_outlined, "Roles/Position")
+                      ),
               InkWell(
                  onTap: () {
                      provider.getSelectedWidget(DepartMenListtScreens());
                   },
-                child: ServiceCard().serviceCard(
-                    context, Icons.supervised_user_circle, "Register User"),
+                // child: ServiceCard().serviceCard(
+                //     context, Icons.supervised_user_circle, "Register User"),
               ),
-              ServiceCard().serviceCard(context, Icons.home_filled, "Service"),
+              // ServiceCard().serviceCard(context, Icons.home_filled, "Service"),
             ],
           ),
         ));

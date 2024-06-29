@@ -2,19 +2,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:visitors/screens/homepage.dart';
-import 'package:visitors/screens/homescreen.dart';
-import 'package:visitors/screens/mobileView/departmentMobileView.dart';
 import 'package:visitors/screens/mobileView/loginScreen.dart';
-import 'package:visitors/screens/mobileView/profileScreen.dart';
-import 'package:visitors/screens/mobileView/receptionHomePage.dart';
-import 'package:visitors/screens/mobileView/receptionview/receptionHome.dart';
-import 'package:visitors/screens/mobileView/registrationScreen.dart';
 import 'package:visitors/screens/mobileView/services/authServices.dart';
-import 'package:visitors/screens/mobileView/staffMobileview.dart';
-import 'package:visitors/screens/mobileView/staffView/staffHomePage.dart';
-import 'package:visitors/screens/provider/dataSelectedPRovider.dart';
-import 'package:visitors/screens/provider/widgetprovider.dart';
-import 'package:visitors/signup/auth_services.dart';
+import 'package:visitors/screens/provider/data_provider.dart';
+import 'screens/provider/dataSelectedPRovider.dart';
+import 'screens/provider/widgetprovider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,6 +21,7 @@ void main() async {
     providers: [
       ChangeNotifierProvider(create: (_) => WidgetProvider()),
       ChangeNotifierProvider(create: (_) => DataSelectedProvider()),
+      ChangeNotifierProvider(create: (_) => DataProvider())
     ],
     child: MyApp(),
   ));
@@ -46,19 +39,19 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        //  home: FutureBuilder(
-        //         future: Authservices().getCurrentUser(),
-        //         builder: (context, AsyncSnapshot snapshot) {
-        //           if (snapshot.connectionState == ConnectionState.done) {
-        //             if (snapshot.hasData) {
-        //               return StaffHomeView();
-        //               // HomePage();
-        //             }
-        //             return LoginScreen();
-        //           }
-        //           return Center(child: CircularProgressIndicator(),);
-        //        })
-         home: HomePage()
-        );
+        // home: FutureBuilder(
+        //     future: Authservices().getCurrentUser(),
+        //     builder: (context, AsyncSnapshot snapshot) {
+        //       if (snapshot.connectionState == ConnectionState.done) {
+        //         if (snapshot.hasData) {
+        //           return const HomePage();
+        //         }
+        //         return const LoginScreen();
+        //       }
+        //       return const Center(
+        //         child: CircularProgressIndicator(),
+        //       );
+        //     })
+        home: HomePage());
   }
 }

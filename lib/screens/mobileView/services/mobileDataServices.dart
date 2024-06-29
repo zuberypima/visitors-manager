@@ -18,6 +18,7 @@ class Mobiledataservices {
       "PhoneNumber": _phoneNumber,
       "StaffId": _staffID,
       "DepartmentName": "NoDepartment",
+      "AccessPriveratge": "None",
     });
   }
 
