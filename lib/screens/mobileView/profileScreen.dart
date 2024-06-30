@@ -14,90 +14,74 @@ class _ProfilescreenState extends State<Profilescreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          actions: [
-            ElevatedButton(
-                onPressed: () {
-                  Authservices().logOutService(context);
-                },
-                child: Text("LogOut"))
-          ],
-        ),
         body: FutureBuilder<DocumentSnapshot>(
-          future: FirebaseFirestore.instance
-              .collection('UserDatils')
-              .doc(FirebaseAuth.instance.currentUser!.email.toString())
-              .get(),
-          builder:
-              (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
-            if (snapshot.hasError) {
-              return Center(child: Text("Something went wrong"));
-            }
+      future: FirebaseFirestore.instance
+          .collection('UserDatils')
+          .doc(FirebaseAuth.instance.currentUser!.email.toString())
+          .get(),
+      builder:
+          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Center(child: Text("Something went wrong"));
+        }
 
-            if (snapshot.hasData && !snapshot.data!.exists) {
-              return Center(child: Text("Document does not exist"));
-            }
+        if (snapshot.hasData && !snapshot.data!.exists) {
+          return Center(child: Text("Document does not exist"));
+        }
 
-            if (snapshot.connectionState == ConnectionState.done) {
-              Map<String, dynamic> data =
-                  snapshot.data!.data() as Map<String, dynamic>;
-              return ListView(
+        if (snapshot.connectionState == ConnectionState.done) {
+          Map<String, dynamic> data =
+              snapshot.data!.data() as Map<String, dynamic>;
+          return ListView(
+            children: [
+              Row(
                 children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height / 4,
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Colors.blue,
-                        Color.fromARGB(255, 51, 189, 253),
-                      ],
-                    )),
-                    child: Center(
-                      child: CircleAvatar(
-                        radius: 60,
-                        child: Icon(
-                          Icons.person,
-                          size: 60,
-                          color: Colors.blueGrey,
-                        ),
-                      ),
-                    ),
+                  CircleAvatar(
+                    child: Icon(Icons.person),
                   ),
-                  detailContainer(
-                    Icons.person,
-                    data['LastName'],
+                  SizedBox(
+                    width: 10,
                   ),
-                  Divider(),
-                  detailContainer(
-                    Icons.email,
-                    data['Email'],
-                  ),
-                  Divider(),
-                  detailContainer(
-                    Icons.phone,
-                    data['PhoneNumber'],
-                  ),
-                  Divider(),
-                  detailContainer(
-                    Icons.group,
-                    data['DepartmentName'],
-                  ),
-                  Divider(),
-                  detailContainer(
-                    Icons.accessibility_rounded,
-                    data['AccessPriveratge'],
+                  Text(
+                    data['LastName'].toString(),
                   )
                 ],
-              );
-            }
+              ),
+              Divider(),
+              detailContainer(
+                Icons.email,
+                data['Email'],
+              ),
+              Divider(),
+              detailContainer(
+                Icons.phone,
+                data['PhoneNumber'],
+              ),
+              Divider(),
+              detailContainer(
+                Icons.group,
+                data['DepartmentName'],
+              ),
+              Divider(),
+              detailContainer(
+                Icons.accessibility_rounded,
+                data['AccessPriveratge'],
+              ),
+              Divider(),
+              TextButton(
+                  onPressed: () {
+                    Authservices().logOutService(context);
+                  },
+                  child: Text("LogOut"))
+            ],
+          );
+        }
 
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          },
-        ));
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    ));
   }
 
   Widget detailContainer(IconData iconData, String label) {

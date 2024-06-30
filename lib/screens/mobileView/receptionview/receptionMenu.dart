@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:visitors/screens/mobileView/registerNewVisitor.dart';
 import 'package:visitors/screens/mobileView/staffMobileview.dart';
-import 'package:visitors/widget/reportcards/allvisitorsToday.dart';
 
 class ReceptionMainMenuScreen extends StatefulWidget {
   const ReceptionMainMenuScreen({super.key});
