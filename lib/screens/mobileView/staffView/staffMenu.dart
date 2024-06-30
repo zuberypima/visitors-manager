@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:visitors/screens/mobileView/departmentMobileView.dart';
 import 'package:visitors/screens/mobileView/registerNewVisitor.dart';
 import 'package:visitors/screens/mobileView/staffMobileview.dart';
+import 'package:visitors/widget/utils/colors.dart';
 
 class StaffMainMenuScreen extends StatefulWidget {
   const StaffMainMenuScreen({super.key});
@@ -14,7 +15,7 @@ class _StaffMainMenuScreenState extends State<StaffMainMenuScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orangeAccent[100],
+      backgroundColor: white,
       body: GridView(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, childAspectRatio: 2),

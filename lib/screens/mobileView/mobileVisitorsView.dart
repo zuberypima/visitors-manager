@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:visitors/screens/checkIn_CheckOut.dart';
 import 'package:visitors/screens/mobileView/visitorsView.dart';
+import 'package:visitors/widget/utils/colors.dart';
 
 class MobileVisitorsView extends StatefulWidget {
   const MobileVisitorsView({super.key});
@@ -15,7 +16,7 @@ class _MobileVisitorsViewState extends State<MobileVisitorsView> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-          backgroundColor: Colors.orange[200],
+          backgroundColor: white,
           appBar: AppBar(
             bottom: TabBar(
               tabs: [

@@ -2,8 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:visitors/screens/homepage.dart';
-import 'package:visitors/screens/mainScreen.dart';
 import 'package:visitors/screens/mobileView/loginScreen.dart';
 import 'package:visitors/screens/mobileView/services/authServices.dart';
 import 'package:visitors/screens/provider/data_provider.dart';
@@ -42,7 +40,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,
         ),
         home: FutureBuilder(

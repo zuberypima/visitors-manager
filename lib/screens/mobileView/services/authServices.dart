@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:visitors/screens/homepage.dart';
+import 'package:visitors/screens/adminView/homepage.dart';
 import 'package:visitors/screens/mobileView/beforAccesView/noAccessHome.dart';
 import 'package:visitors/screens/mobileView/loginScreen.dart';
 import 'package:visitors/screens/mobileView/receptionview/receptionHome.dart';

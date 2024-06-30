@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:visitors/widget/utils/colors.dart';
 
 class VisitorsView extends StatefulWidget {
   const VisitorsView({super.key});
@@ -17,7 +18,7 @@ class _VisitorsViewState extends State<VisitorsView> {
     String formattedDate = DateFormat('dd-MM-yyyy').format(nowDate);
 
     return Scaffold(
-      backgroundColor: Colors.orangeAccent[100],
+      backgroundColor: white,
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
             .collection("VisitorsOfDepartment")

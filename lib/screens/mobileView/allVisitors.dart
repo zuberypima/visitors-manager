@@ -12,7 +12,7 @@ class _ViewAllVisitorsState extends State<ViewAllVisitors> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orangeAccent[100],
+      backgroundColor: Colors.white,
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
             .collection("VisitorsOfDepartment")

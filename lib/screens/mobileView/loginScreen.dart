@@ -12,7 +12,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController _emailController = TextEditingController();
-    TextEditingController _password = TextEditingController();
+  TextEditingController _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,10 @@ class _LoginScreenState extends State<LoginScreen> {
               style: TextStyle(fontWeight: FontWeight.w500),
             ),
             CustomTextFormFieldOne(
-                hintText: "master@gmail.com", nameControler: _emailController),
+              hintText: "master@gmail.com",
+              nameControler: _emailController,
+              obscureText: false,
+            ),
             SizedBox(
               height: 10,
             ),
@@ -38,7 +41,10 @@ class _LoginScreenState extends State<LoginScreen> {
               style: TextStyle(fontWeight: FontWeight.w500),
             ),
             CustomTextFormFieldOne(
-                hintText: "******", nameControler: _password),
+              hintText: "******",
+              nameControler: _password,
+              obscureText: true,
+            ),
             SizedBox(
               height: 30,
             ),
@@ -50,7 +56,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           WidgetStatePropertyAll(Colors.orangeAccent),
                       foregroundColor: WidgetStatePropertyAll(Colors.white)),
                   onPressed: () {
-                    Authservices().userLogin(context, _emailController.text, _password.text);
+                    Authservices().userLogin(
+                        context, _emailController.text, _password.text);
                   },
                   child: Text("Login")),
             ),
@@ -60,9 +67,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   width: 10,
                 ),
-                TextButton(onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>RegistrationScreen()));
-                }, child: Text("Register"))
+                TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => RegistrationScreen()));
+                    },
+                    child: Text("Register"))
               ],
             )
           ],

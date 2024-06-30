@@ -45,7 +45,15 @@ class _ProfilescreenState extends State<Profilescreen> {
                 children: [
                   Container(
                     height: MediaQuery.of(context).size.height / 4,
-                    decoration: BoxDecoration(color: Colors.orangeAccent[100]),
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                      begin: Alignment.centerLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Colors.blue,
+                        Color.fromARGB(255, 51, 189, 253),
+                      ],
+                    )),
                     child: Center(
                       child: CircleAvatar(
                         radius: 60,
@@ -75,6 +83,11 @@ class _ProfilescreenState extends State<Profilescreen> {
                   detailContainer(
                     Icons.group,
                     data['DepartmentName'],
+                  ),
+                  Divider(),
+                  detailContainer(
+                    Icons.accessibility_rounded,
+                    data['AccessPriveratge'],
                   )
                 ],
               );

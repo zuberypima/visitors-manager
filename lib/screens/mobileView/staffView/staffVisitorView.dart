@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:visitors/widget/utils/colors.dart';
 
 class Staffvisitorview extends StatefulWidget {
   const Staffvisitorview({super.key});
@@ -16,7 +17,7 @@ class _StaffvisitorviewState extends State<Staffvisitorview> {
   Widget build(BuildContext context) {
     print(_auth.currentUser!.email.toString());
     return Scaffold(
-      backgroundColor: Colors.orangeAccent[100],
+      backgroundColor: white,
       appBar: AppBar(
         elevation: 0,
         title: Text("My Visitors"),

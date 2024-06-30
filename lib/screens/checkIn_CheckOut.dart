@@ -28,12 +28,10 @@ class CheckVistors {
                 child: ListTile(
                   title: Text(data['FullName']),
                   subtitle: Text(data['PhoneNumber']),
-                  trailing: ElevatedButton(
+                  trailing: TextButton(
                       style: ButtonStyle(
-                        backgroundColor:
-                            WidgetStatePropertyAll<Color>(Colors.redAccent),
                         foregroundColor:
-                            WidgetStatePropertyAll<Color>(Colors.white),
+                            WidgetStatePropertyAll<Color>(Colors.red),
                       ),
                       onPressed: () {
                         ReceptionService()
@@ -62,7 +60,7 @@ class CheckVistors {
           if (snapshot.hasError) {
             return Text('Something went wrong');
           }
-      
+
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
               child: CircularProgressIndicator(),
@@ -76,12 +74,10 @@ class CheckVistors {
                 child: ListTile(
                   title: Text(data['FullName']),
                   subtitle: Text(data['PhoneNumber']),
-                  trailing: ElevatedButton(
+                  trailing: TextButton(
                       style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll<Color>(Colors.green),
                         foregroundColor:
-                            MaterialStatePropertyAll<Color>(Colors.white),
+                            WidgetStatePropertyAll<Color>(Colors.green),
                       ),
                       onPressed: () {
                         ReceptionService()

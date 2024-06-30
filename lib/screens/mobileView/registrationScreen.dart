@@ -33,7 +33,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               "First Name",
               style: TextStyle(fontWeight: FontWeight.w500),
             ),
-            CustomTextFormFieldOne(hintText: "Juma", nameControler: _firstName),
+            CustomTextFormFieldOne(
+              hintText: "Juma",
+              nameControler: _firstName,
+              obscureText: false,
+            ),
             SizedBox(
               height: 10,
             ),
@@ -42,7 +46,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               style: TextStyle(fontWeight: FontWeight.w500),
             ),
             CustomTextFormFieldOne(
-                hintText: "Mgunda", nameControler: _lastName),
+              hintText: "Mgunda",
+              nameControler: _lastName,
+              obscureText: false,
+            ),
             SizedBox(
               height: 10,
             ),
@@ -51,7 +58,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               "StaffID",
               style: TextStyle(fontWeight: FontWeight.w500),
             ),
-            CustomTextFormFieldOne(hintText: "IT0001", nameControler: _staffID),
+            CustomTextFormFieldOne(
+              hintText: "IT0001",
+              nameControler: _staffID,
+              obscureText: false,
+            ),
             SizedBox(
               height: 10,
             ),
@@ -61,7 +72,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               style: TextStyle(fontWeight: FontWeight.w500),
             ),
             CustomTextFormFieldOne(
-                hintText: "mgunda@gmail.com", nameControler: _emailController),
+              hintText: "mgunda@gmail.com",
+              nameControler: _emailController,
+              obscureText: false,
+            ),
             SizedBox(
               height: 10,
             ),
@@ -70,7 +84,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               style: TextStyle(fontWeight: FontWeight.w500),
             ),
             CustomTextFormFieldOne(
-                hintText: "0755896546", nameControler: _phoneNumber),
+              hintText: "0755896546",
+              nameControler: _phoneNumber,
+              obscureText: false,
+            ),
             SizedBox(
               height: 10,
             ),
@@ -79,7 +96,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               style: TextStyle(fontWeight: FontWeight.w500),
             ),
             CustomTextFormFieldOne(
-                hintText: "******", nameControler: _password),
+              hintText: "******",
+              nameControler: _password,
+              obscureText: true,
+            ),
             SizedBox(
               height: 30,
             ),

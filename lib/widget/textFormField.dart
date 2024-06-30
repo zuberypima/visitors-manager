@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:visitors/widget/small_text.dart';
 import 'package:visitors/widget/utils/dimensions.dart';
 
 class CustomTextFormFieldOne extends StatelessWidget {
-  // String labelText;
-  // String requiredSymbol;
   String hintText;
   TextEditingController nameControler;
   bool obscureText;

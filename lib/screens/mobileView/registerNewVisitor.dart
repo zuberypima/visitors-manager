@@ -42,19 +42,27 @@ class _RegisterNewVisitorState extends State<RegisterNewVisitor> {
               ),
               Divider(),
               CustomTextFormFieldOne(
-                  hintText: "Visitor Full Name",
-                  nameControler: fullNameController),
+                hintText: "Visitor Full Name",
+                nameControler: fullNameController,
+                obscureText: false,
+              ),
               SizedBox(height: Dimensions.height20(context)),
 
               // Email reciew
               CustomTextFormFieldOne(
-                  hintText: "Email Address", nameControler: emailController),
+                hintText: "Email Address",
+                nameControler: emailController,
+                obscureText: false,
+              ),
 
               SizedBox(height: Dimensions.height20(context)),
 
               // Mobile Number recieve
               CustomTextFormFieldOne(
-                  hintText: "Enter Mobile", nameControler: mobileController),
+                hintText: "Enter Mobile",
+                nameControler: mobileController,
+                obscureText: false,
+              ),
 
               SizedBox(height: Dimensions.height20(context)),
               ElevatedButton(
