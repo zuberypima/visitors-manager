@@ -68,8 +68,12 @@ class _ViewAllStaffMembersState extends State<ViewAllStaffMembers> {
                             backgroundColor: Colors.green,
                             child: IconButton(
                                 onPressed: () {
-                                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CallPage(callID: '123456', userName: data['LastName'].toString(),)));
-
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => CallPage(
+                                            callID: '123456',
+                                            userName:
+                                                data['LastName'].toString(),
+                                          )));
                                 },
                                 icon: Icon(
                                   Icons.call,
@@ -104,8 +108,10 @@ class _ViewAllStaffMembersState extends State<ViewAllStaffMembers> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomTextFormFieldOne(
-                        hintText: "Staff@gmail.com",
-                        nameControler: _emailController)
+                      hintText: "Staff@gmail.com",
+                      nameControler: _emailController,
+                      obscureText: false,
+                    )
                   ],
                 ),
               ),

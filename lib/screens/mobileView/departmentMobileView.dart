@@ -79,14 +79,19 @@ class _DepartmentmobileviewState extends State<Departmentmobileview> {
                 children: [
                   Text("Department Code"),
                   CustomTextFormFieldOne(
-                      hintText: "IT001", nameControler: _departmentCode),
+                    hintText: "IT001",
+                    nameControler: _departmentCode,
+                    obscureText: false,
+                  ),
                   SizedBox(
                     height: 20,
                   ),
                   Text("Department Name"),
                   CustomTextFormFieldOne(
-                      hintText: "Infotmation Technology",
-                      nameControler: _departmentName)
+                    hintText: "Infotmation Technology",
+                    nameControler: _departmentName,
+                    obscureText: false,
+                  )
                 ],
               ),
             ),

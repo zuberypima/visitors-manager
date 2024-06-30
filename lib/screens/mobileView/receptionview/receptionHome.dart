@@ -29,18 +29,17 @@ class _ReceptionhomeState extends State<Receptionhome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: screenList.elementAt(_selectedScreen),
-      bottomNavigationBar: BottomNavigationBar(
-          onTap: onSelect,
-          currentIndex: _selectedScreen,
-          items: [
-            BottomNavigationBarItem(icon: Icon(Icons.group), label: "Visitors"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home_max_sharp), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
-          ])
-    );
+        body: screenList.elementAt(_selectedScreen),
+        bottomNavigationBar: BottomNavigationBar(
+            onTap: onSelect,
+            currentIndex: _selectedScreen,
+            items: [
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.group), label: "Visitors"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.home_max_sharp), label: "Home"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.person), label: "Profile")
+            ]));
   }
 }
-
-

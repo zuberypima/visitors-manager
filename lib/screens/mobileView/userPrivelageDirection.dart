@@ -15,7 +15,7 @@ class _UserprivelagedirectionState extends State<Userprivelagedirection> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: FutureBuilder(
-            future: Authservices().getCurrentUser(),
+            future: Authservices().getCurrentUser(context),
             builder: (context, AsyncSnapshot snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
                 if (snapshot.hasData) {

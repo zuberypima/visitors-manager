@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:visitors/screens/homepage.dart';
+import 'package:visitors/screens/mainScreen.dart';
 import 'package:visitors/screens/mobileView/loginScreen.dart';
 import 'package:visitors/screens/mobileView/services/authServices.dart';
 import 'package:visitors/screens/provider/data_provider.dart';
@@ -31,27 +33,33 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
+    // final provider = Provider.of<WidgetProvider>(context);
+    // Authservices().getUserPriverage(
+    //     context, FirebaseAuth.instance.currentUser!.email.toString());
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        // home: FutureBuilder(
-        //     future: Authservices().getCurrentUser(),
-        //     builder: (context, AsyncSnapshot snapshot) {
-        //       if (snapshot.connectionState == ConnectionState.done) {
-        //         if (snapshot.hasData) {
-        //           return const HomePage();
-        //         }
-        //         return const LoginScreen();
-        //       }
-        //       return const Center(
-        //         child: CircularProgressIndicator(),
-        //       );
-        //     })
-        home: HomePage());
+        home: FutureBuilder(
+            future: Authservices().getCurrentUser(context),
+            builder: (context, AsyncSnapshot snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                if (snapshot.hasData) {
+                  // return const HomePage();
+                  Authservices().getUserPriverage(context,
+                      FirebaseAuth.instance.currentUser!.email.toString());
+                }
+                return const LoginScreen();
+              }
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }));
+    // home: HomePage());
   }
 }
