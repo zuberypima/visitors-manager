@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:visitors/services/adminServices.dart';
+import 'package:visitors/appservices/adminiSevices.dart';
 import 'package:visitors/widget/big_text.dart';
 import 'package:visitors/widget/formOne.dart';
 import 'package:visitors/widget/utils/dimensions.dart';
@@ -22,43 +22,43 @@ class _CreateDepartmentPageState extends State<CreateDepartmentPage> {
         padding: const EdgeInsets.all(8.0),
         child: Container(
           width: MediaQuery.of(context).size.width / 3,
-          height: MediaQuery.of(context).size.width/2,
+          height: MediaQuery.of(context).size.width / 2,
           color: Colors.white,
           child: Expanded(
             child: Column(
-          
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
                   "Create New Department",
-                  style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
                 Divider(),
-          
+
                 formFieldOne(
                     context, "Department Name", departmentNameController),
                 SizedBox(height: Dimensions.height20(context)),
-          
+
                 // Mobile Number recieve
                 formFieldOne(context, "Code", departmentCodeController),
-          
+
                 SizedBox(height: Dimensions.height20(context)),
-          
+
                 Align(
                   alignment: Alignment.bottomRight,
                   child: Padding(
-                    padding: EdgeInsets.only(
-                        bottom: Dimensions.height20(context)),
+                    padding:
+                        EdgeInsets.only(bottom: Dimensions.height20(context)),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
                       ),
-                      onPressed: () async{
-                     await   AdministratorServices().register_Department(
+                      onPressed: () async {
+                        await AdministratorServices().register_Department(
                             departmentNameController.text,
-                            departmentCodeController.text,context);
-                              Navigator.pop(context);
+                            departmentCodeController.text,
+                            context);
+                        Navigator.pop(context);
                       },
                       child: BigText(
                         text: "Register Department",

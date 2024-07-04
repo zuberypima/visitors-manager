@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:visitors/services/adminServices.dart';
+import 'package:visitors/appservices/adminiSevices.dart';
 import 'package:visitors/widget/big_text.dart';
 import 'package:visitors/widget/formOne.dart';
 import 'package:visitors/widget/utils/dimensions.dart';
-
 
 // ignore: must_be_immutable
 class StaffRegForm extends StatefulWidget {
@@ -81,11 +80,12 @@ class _StaffRegFormState extends State<StaffRegForm> {
                                 _phoneNumber.text,
                                 _staffId.text,
                                 password);
-                            
+
                             // AuthenticationServices()
                             //     .normaUserAuthenticate(context,_emailAddress.text, password);
 
-                            AdministratorServices().all_access_for_users(_emailAddress.text);
+                            AdministratorServices()
+                                .all_access_for_users(_emailAddress.text);
                             Navigator.pop(context);
                           },
                           child: BigText(

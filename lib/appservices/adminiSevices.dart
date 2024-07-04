@@ -12,6 +12,7 @@ class AdministratorServices {
         "Code": code,
         "Department": departmentName,
       });
+      Navigator.pop(context);
     } catch (e) {
       print(e.toString());
     }

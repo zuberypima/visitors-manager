@@ -16,27 +16,33 @@ class _MobileVisitorsViewState extends State<MobileVisitorsView> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-          backgroundColor: white,
-          appBar: AppBar(
-            bottom: TabBar(
-              tabs: [
-                Tab(
-                  child: Text("Today"),
-                ),
-                Tab(
-                  child: Text("Check In"),
-                ),
-                Tab(
-                  child: Text("Check Out"),
-                )
-              ],
-            ),
+        backgroundColor: white,
+        appBar: AppBar(
+          // backgroundColor: Colors.lightBlue,
+          bottom: TabBar(
+            tabs: [
+              Tab(
+                child: Text("Today"),
+              ),
+              Tab(
+                child: Text("Check In"),
+              ),
+              Tab(
+                child: Text("Check Out"),
+              )
+            ],
           ),
-          body: TabBarView(children: [
-            VisitorsView(),
-            CheckVistors().check_in_visitors(context),
-            CheckVistors().check_Out_visitors(context),
-          ])),
+        ),
+        body: TabBarView(children: [
+          VisitorsView(),
+          CheckVistors().check_in_visitors(context),
+          CheckVistors().check_Out_visitors(context),
+        ]),
+        floatingActionButton: SizedBox(
+            width: 100,
+            child: FloatingActionButton(
+                onPressed: () {}, child: Text("New Visitor"))),
+      ),
     );
   }
 }

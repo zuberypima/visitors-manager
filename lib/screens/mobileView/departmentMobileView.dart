@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:visitors/services/adminServices.dart';
+import 'package:visitors/appservices/adminiSevices.dart';
 import 'package:visitors/widget/textFormField.dart';
 
 class Departmentmobileview extends StatefulWidget {
@@ -15,7 +14,7 @@ class _DepartmentmobileviewState extends State<Departmentmobileview> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orangeAccent[100],
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Departments"),
       ),

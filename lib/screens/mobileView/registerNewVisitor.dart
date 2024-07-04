@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:visitors/appservices/assignVisitor.dart';
+import 'package:visitors/appservices/dataSaver.dart';
 import 'package:visitors/screens/provider/dataSelectedPRovider.dart';
-import 'package:visitors/services/assignVisitor.dart';
-import 'package:visitors/services/dataSaver.dart';
 import 'package:visitors/widget/big_text.dart';
 import 'package:visitors/widget/textFormField.dart';
 import 'package:visitors/widget/utils/dimensions.dart';
@@ -27,7 +27,11 @@ class _RegisterNewVisitorState extends State<RegisterNewVisitor> {
   Widget build(BuildContext context) {
     final provider = Provider.of<DataSelectedProvider>(context);
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.lightBlue,
+        foregroundColor: Colors.white,
+      ),
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -66,6 +70,9 @@ class _RegisterNewVisitorState extends State<RegisterNewVisitor> {
 
               SizedBox(height: Dimensions.height20(context)),
               ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor: WidgetStatePropertyAll(Colors.blueGrey),
+                      foregroundColor: WidgetStatePropertyAll(Colors.white)),
                   onPressed: () {
                     AssingVisitors().selectDepartMent(context);
                   },
@@ -121,7 +128,7 @@ class _RegisterNewVisitorState extends State<RegisterNewVisitor> {
                   width: MediaQuery.of(context).size.width,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.orangeAccent,
+                        backgroundColor: Colors.lightBlue,
                       ),
                       onPressed: () {
                         DataSever()
@@ -143,7 +150,7 @@ class _RegisterNewVisitorState extends State<RegisterNewVisitor> {
                       },
                       child: Text(
                         "Register Visitor",
-                        style: TextStyle(color: Colors.white, fontSize: 17),
+                        style: TextStyle(color: Colors.white, fontSize: 15),
                       )),
                 ),
               ),

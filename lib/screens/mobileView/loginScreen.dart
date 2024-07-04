@@ -52,8 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
                   style: ButtonStyle(
-                      backgroundColor:
-                          WidgetStatePropertyAll(Colors.orangeAccent),
+                      backgroundColor: WidgetStatePropertyAll(Colors.lightBlue),
                       foregroundColor: WidgetStatePropertyAll(Colors.white)),
                   onPressed: () {
                     Authservices().userLogin(

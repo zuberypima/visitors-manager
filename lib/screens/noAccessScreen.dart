@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class NoAcceVisitorsView extends StatelessWidget {
-  const NoAcceVisitorsView({super.key});
+class NoAccessScreen extends StatelessWidget {
+  const NoAccessScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

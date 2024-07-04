@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:visitors/appservices/assignVisitor.dart';
+import 'package:visitors/appservices/dataSaver.dart';
 import 'package:visitors/screens/provider/dataSelectedPRovider.dart';
-import 'package:visitors/services/assignVisitor.dart';
-import 'package:visitors/services/dataSaver.dart';
 import 'package:visitors/widget/big_text.dart';
 import 'package:visitors/widget/formOne.dart';
 import 'package:visitors/widget/utils/dimensions.dart';
-
 
 class VisitorRegistor extends StatefulWidget {
   const VisitorRegistor({super.key});
@@ -114,13 +112,12 @@ class _VisitorRegistorState extends State<VisitorRegistor> {
                           )
                               .then((value) {
                             DataSever().registerVisitor_to_Department(
-                                  fullNameController.text,
-                            emailController.text,
-                            mobileController.text,
-                            provider.selectedDepartment,
-                            provider.selectedStaffMember,
-                            "CheckIn"
-                            );
+                                fullNameController.text,
+                                emailController.text,
+                                mobileController.text,
+                                provider.selectedDepartment,
+                                provider.selectedStaffMember,
+                                "CheckIn");
                             Navigator.pop(context);
                           });
                         },

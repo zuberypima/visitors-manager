@@ -13,8 +13,7 @@ class _StaffManagementState extends State<StaffManagement> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-            backgroundColor: Colors.orangeAccent[100],
-
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Select Department"),
       ),
@@ -28,7 +27,9 @@ class _StaffManagementState extends State<StaffManagement> {
             }
 
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: CircularProgressIndicator(),);
+              return Center(
+                child: CircularProgressIndicator(),
+              );
             }
 
             return ListView(

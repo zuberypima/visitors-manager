@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:visitors/screens/mobileView/callScreen.dart';
-import 'package:visitors/screens/mobileView/menuScreen.dart';
+import 'package:visitors/screens/adminHomeScreen.dart';
 import 'package:visitors/screens/mobileView/mobileVisitorsView.dart';
 import 'package:visitors/screens/mobileView/profileScreen.dart';
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
@@ -16,7 +16,7 @@ class _ReceptionhomepageState extends State<Receptionhomepage> {
   int _selectedScreen = 1;
   List<Widget> screenList = [
     MobileVisitorsView(),
-    MainMenuScreen(),
+    AdminMainScreen(),
     Profilescreen()
   ];
   void onSelect(int index) {

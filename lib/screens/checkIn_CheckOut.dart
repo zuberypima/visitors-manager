@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:visitors/services/receptionService.dart';
+import 'package:visitors/appservices/receptionService.dart';
 
 class CheckVistors {
   Widget check_in_visitors(context) {
@@ -26,7 +26,7 @@ class CheckVistors {
                   document.data()! as Map<String, dynamic>;
               return Card(
                 child: ListTile(
-                  title: Text(data['FullName']),
+                  title: Text(data['FullName'].toString()),
                   subtitle: Text(data['PhoneNumber']),
                   trailing: TextButton(
                       style: ButtonStyle(

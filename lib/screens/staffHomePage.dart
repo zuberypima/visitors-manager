@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:visitors/screens/mobileView/profileScreen.dart';
-import 'package:visitors/screens/mobileView/staffView/staffMenu.dart';
-import 'package:visitors/screens/mobileView/staffView/staffVisitorView.dart';
+import 'package:visitors/screens/staffMenu.dart';
+import 'package:visitors/screens/staffVisitorView.dart';
 
 class StaffHomeView extends StatefulWidget {
   const StaffHomeView({super.key});

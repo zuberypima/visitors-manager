@@ -21,7 +21,7 @@ class _ViewAllStaffMembersState extends State<ViewAllStaffMembers> {
   Widget build(BuildContext context) {
     final provider = Provider.of<WidgetProvider>(context);
     return Scaffold(
-      backgroundColor: Colors.orangeAccent[100],
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(widget.selectedDepartment),
         actions: [
@@ -51,6 +51,7 @@ class _ViewAllStaffMembersState extends State<ViewAllStaffMembers> {
               Map<String, dynamic> data =
                   document.data()! as Map<String, dynamic>;
               return Card(
+                color: Color.fromARGB(202, 250, 250, 173),
                 child: SizedBox(
                   height: 100,
                   child: ListTile(

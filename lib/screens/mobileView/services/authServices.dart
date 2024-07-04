@@ -1,13 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:visitors/screens/adminView/homepage.dart';
-import 'package:visitors/screens/mobileView/beforAccesView/noAccessHome.dart';
 import 'package:visitors/screens/mobileView/loginScreen.dart';
-import 'package:visitors/screens/mobileView/receptionview/receptionHome.dart';
-import 'package:visitors/screens/mobileView/staffView/staffHomePage.dart';
-import 'package:visitors/screens/provider/widgetprovider.dart';
+import 'package:visitors/screens/adminHomeScreen.dart';
+import 'package:visitors/screens/noAccessScreen.dart';
+import 'package:visitors/screens/receptionHome.dart';
 
 class Authservices {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -18,9 +15,10 @@ class Authservices {
   Future<void> createUserAccount(context, String emailAddress, password) async {
     _showLoadingDialog(context);
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: emailAddress, password: password);
-      getUserPriverage(context, emailAddress);
+      await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: emailAddress, password: password)
+          .then((_) => getUserPriverage(context, emailAddress));
 
       // Navigator.of(context)
       //     .push(MaterialPageRoute(builder: (context) => HomePage()));
@@ -37,8 +35,8 @@ class Authservices {
     _showLoadingDialog(context);
     try {
       await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: emailAddress, password: password);
-      getUserPriverage(context, emailAddress);
+          .signInWithEmailAndPassword(email: emailAddress, password: password)
+          .then((_) => getUserPriverage(context, emailAddress));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
@@ -63,35 +61,28 @@ class Authservices {
         if (data['AccessPriveratge'].toString() == 'None') {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => Noaccesshome()),
+            MaterialPageRoute(builder: (context) => NoAccessScreen()),
           );
-          // Navigator.of(context)
-          //     .push(MaterialPageRoute(builder: (context) => Noaccesshome()));
-          // Navigator.of(context)
-          //     .push(MaterialPageRoute(builder: (context) => StaffHomeView()));
         } else if (data['AccessPriveratge'].toString() == 'Admin') {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => HomePage()),
+            MaterialPageRoute(builder: (context) => AdminMainScreen()),
           );
-          // Navigator.of(context)
-          //     .push(MaterialPageRoute(builder: (context) => HomePage()));
         } else if (data['AccessPriveratge'].toString() == 'Staff') {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => Receptionhome()),
           );
-
-          // Navigator.of(context)
-          //     .push(MaterialPageRoute(builder: (context) => Receptionhome()));
+        } else if (data['AccessPriveratge'].toString() == 'Reception') {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => Receptionhome()),
+          );
         } else {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => Noaccesshome()),
+            MaterialPageRoute(builder: (context) => NoAccessScreen()),
           );
-          // print('No screen assigne');
-          // Navigator.of(context)
-          //     .push(MaterialPageRoute(builder: (context) => Receptionhome()));
         }
       } else {
         print('Document does not exist on the database');

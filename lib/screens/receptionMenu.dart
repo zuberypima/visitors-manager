@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:visitors/screens/mobileView/mobileVisitorsView.dart';
 import 'package:visitors/screens/mobileView/registerNewVisitor.dart';
 import 'package:visitors/screens/mobileView/staffMobileview.dart';
+import 'package:visitors/widget/reportcards/allvisitorsToday.dart';
+import 'package:visitors/widget/utils/colors.dart';
 
 class ReceptionMainMenuScreen extends StatefulWidget {
   const ReceptionMainMenuScreen({super.key});
@@ -18,19 +21,16 @@ class _ReceptionMainMenuScreenState extends State<ReceptionMainMenuScreen> {
       backgroundColor: Colors.white,
       body: ListView(
         children: [
-          Container(
-            height: MediaQuery.of(context).size.height / 3,
-            // child: todayVisitorsCard(),
-            child: Column(
-              children: [Text("Today Visitors")],
-            ),
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: repordContainer(context),
           ),
+          Divider(),
           Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height / 3,
+            height: MediaQuery.of(context).size.height / 2,
             child: GridView(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, childAspectRatio: 1.5),
+                  crossAxisCount: 2, childAspectRatio: 2),
               children: [
                 InkWell(
                     onTap: () {
@@ -42,13 +42,23 @@ class _ReceptionMainMenuScreenState extends State<ReceptionMainMenuScreen> {
                 InkWell(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => RegisterNewVisitor()));
+                          builder: (context) => MobileVisitorsView()));
                     },
-                    child: serviceCard("Registor Visitor", Icons.person_add)),
+                    child: serviceCard("Visitors", Icons.person_add)),
               ],
             ),
           ),
         ],
+      ),
+      floatingActionButton: SizedBox(
+        width: 100,
+        child: FloatingActionButton(
+          onPressed: () {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => RegisterNewVisitor()));
+          },
+          child: Text('New Visitor'),
+        ),
       ),
     );
   }
@@ -81,6 +91,38 @@ Widget serviceCard(String cardlabel, IconData icondata) {
           ),
         ],
       ),
+    ),
+  );
+}
+
+Widget repordContainer(context) {
+  return Container(
+    height: MediaQuery.of(context).size.height / 3,
+    decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          colors: [
+            Colors.blue,
+            Color.fromARGB(255, 51, 189, 253),
+            Colors.lightBlue,
+            Color.fromARGB(255, 51, 189, 253),
+          ],
+        ),
+        borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20))),
+    child: GridView(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 1.5,
+        crossAxisSpacing: 30,
+      ),
+      children: [
+        todayVisitorsCard("Today Visit", 'CheckIn', Colors.amber),
+        visitorStatusCar('Check Out', 'CheckIn', Colors.redAccent),
+        visitorStatusCar('Check in', 'CheckIn', Colors.greenAccent),
+        todayVisitorsCard("Other", 'CheckIn', white)
+      ],
     ),
   );
 }

@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:visitors/screens/provider/widgetprovider.dart';
 import 'package:visitors/screens/staff_reg_form.dart';
 
 // ignore: must_be_immutable
@@ -16,12 +14,11 @@ class StaffMembers extends StatefulWidget {
 class _StaffMembersState extends State<StaffMembers> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<WidgetProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.selectedDepartment +"  "+"Members"),
+        title: Text(widget.selectedDepartment + "  " + "Members"),
         actions: [
-           ElevatedButton(
+          ElevatedButton(
               onPressed: () {
                 popScreen(StaffRegForm(
                   selectedDepartment: widget.selectedDepartment,
@@ -51,8 +48,7 @@ class _StaffMembersState extends State<StaffMembers> {
 
           return GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4, 
-                mainAxisExtent: 90),
+                crossAxisCount: 4, mainAxisExtent: 90),
             itemCount: data.length,
             itemBuilder: (BuildContext context, int index) {
               return Card(
@@ -74,7 +70,8 @@ class _StaffMembersState extends State<StaffMembers> {
       ),
     );
   }
-   popScreen(Widget clickedScreen) {
+
+  popScreen(Widget clickedScreen) {
     return showDialog(
         context: context,
         builder: (context) {
