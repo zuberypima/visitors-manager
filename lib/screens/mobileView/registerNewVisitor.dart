@@ -148,7 +148,7 @@ class _RegisterNewVisitorState extends State<RegisterNewVisitor> {
                           Navigator.pop(context);
                         });
                       },
-                      child: Text(
+                      child: const Text(
                         "Register Visitor",
                         style: TextStyle(color: Colors.white, fontSize: 15),
                       )),

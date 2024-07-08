@@ -17,7 +17,7 @@ Widget repordContainer(context) {
           ],
         ),
         borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20))),
+            bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30))),
     child: GridView(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
@@ -25,14 +25,15 @@ Widget repordContainer(context) {
         crossAxisSpacing: 30,
       ),
       children: [
-        todayVisitorsCard(
-          "Today Visit",
-          'CheckIn',
-          white,
-        ),
-        todayVisitorsCard('Check Out', 'CheckIn', white),
-        visitorStatusCar('Check in', 'CheckIn', white),
-        visitorStatusCar("Other", 'CheckIn', white)
+        // todayVisitorsCard(
+        //   "Today Visit",
+        //   'CheckIn',
+        //   white,
+        // ),
+        todayVisitorsCard("Today Visit", 'CheckIn', Colors.amber),
+        visitorStatusCard('Check Out', 'CheckOut', Colors.redAccent),
+        visitorStatusCard('Check in', 'CheckIn', Colors.greenAccent),
+        todayVisitorsCard("Other", 'CheckIn', Colors.pinkAccent)
       ],
     ),
   );

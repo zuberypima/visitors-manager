@@ -110,14 +110,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       backgroundColor: WidgetStatePropertyAll(Colors.lightBlue),
                       foregroundColor: WidgetStatePropertyAll(Colors.white)),
                   onPressed: () async {
-                    await Authservices().createUserAccount(
-                        context, _emailController.text, _password.text);
-                    await Mobiledataservices().adduserDetails(
-                        _firstName.text,
-                        _lastName.text,
-                        _emailController.text,
-                        _phoneNumber.text,
-                        _staffID.text);
+                    await Authservices()
+                        .createUserAccount(
+                            context, _emailController.text, _password.text)
+                        .then((context) => Mobiledataservices().adduserDetails(
+                            _firstName.text,
+                            _lastName.text,
+                            _emailController.text,
+                            _phoneNumber.text,
+                            _staffID.text));
                   },
                   child: Text("Register")),
             ),

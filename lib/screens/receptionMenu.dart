@@ -119,9 +119,9 @@ Widget repordContainer(context) {
       ),
       children: [
         todayVisitorsCard("Today Visit", 'CheckIn', Colors.amber),
-        visitorStatusCar('Check Out', 'CheckIn', Colors.redAccent),
-        visitorStatusCar('Check in', 'CheckIn', Colors.greenAccent),
-        todayVisitorsCard("Other", 'CheckIn', white)
+        visitorStatusCard('Check Out', 'CheckOut', Colors.redAccent),
+        visitorStatusCard('Check in', 'CheckIn', Colors.greenAccent),
+        todayVisitorsCard("Other", 'CheckIn', Colors.pinkAccent)
       ],
     ),
   );

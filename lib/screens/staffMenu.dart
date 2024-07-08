@@ -26,21 +26,12 @@ class _StaffMainMenuScreenState extends State<StaffMainMenuScreen> {
                     MaterialPageRoute(builder: (context) => StaffManagement()));
               },
               child: serviceCard("Department Members")),
-          // InkWell(
-          //     onTap: () {
-          //       Navigator.of(context).push(MaterialPageRoute(
-          //           builder: (context) => Departmentmobileview()));
-          //     },
-          //     child: serviceCard("Departmants")),
           InkWell(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => RegisterNewVisitor()));
               },
               child: serviceCard("Registor Visitor")),
-          // serviceCard("Visitors Management"),
-
-          // serviceCard("Access Service")
         ],
       ),
     );

@@ -20,14 +20,17 @@ class _AllTodayVisistsState extends State<AllTodayVisists> {
     return Scaffold(
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
-            .collection('VisitorsOfDepartment').where("Date",isEqualTo: formattedDate)
+            .collection('VisitorsOfDepartment')
+            .where("Date", isEqualTo: formattedDate)
             .snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
-            return Text('Something went wrong');
+            return const Center(child: Text('Something went wrong'));
           }
-          if(snapshot.data!.docs.isEmpty){
-            return Center(child: Text("No Visitor today"),);
+          if (snapshot.data!.docs.isEmpty) {
+            return const Center(
+              child: Text("No Visitor today"),
+            );
           }
 
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -49,14 +52,14 @@ class _AllTodayVisistsState extends State<AllTodayVisists> {
                       children: [
                         Row(
                           children: [
-                            Text(
+                           const Text(
                               "Phone No: ",
                               style: TextStyle(fontWeight: FontWeight.w800),
                             ),
                             Text(data['PhoneNumber']),
                           ],
                         ),
-                        SizedBox(
+                     const   SizedBox(
                           width: 10,
                         ),
                         Row(
@@ -83,8 +86,7 @@ class _AllTodayVisistsState extends State<AllTodayVisists> {
                       ],
                     ),
                     trailing: InkWell(
-                        onTap: () {
-                        },
+                        onTap: () {},
                         child: Text(
                           "CheckIn",
                           style: TextStyle(fontWeight: FontWeight.bold),

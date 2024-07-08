@@ -36,8 +36,20 @@ Widget todayVisitorsCard(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(cardlable),
-              Text(snapshot.data!.docs.length.toString()),
+              Text(
+                cardlable,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w300),
+              ),
+              Text(
+                snapshot.data!.docs.length.toString(),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w600),
+              ),
             ],
           ),
         ),
@@ -47,7 +59,7 @@ Widget todayVisitorsCard(
 }
 
 // Visitor status card
-Widget visitorStatusCar(
+Widget visitorStatusCard(
   String cardlable,
   visitStatus,
   Color cardcolor,
@@ -75,8 +87,20 @@ Widget visitorStatusCar(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(cardlable),
-              Text(snapshot.data!.docs.length.toString()),
+              Text(
+                cardlable,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w300),
+              ),
+              Text(
+                snapshot.data!.docs.length.toString(),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w600),
+              ),
             ],
           ),
         ),
