@@ -22,8 +22,8 @@ class DataSever {
     });
   }
 
-  Future<void> registerVisitor_to_Department(
-      String visitorName, email, phoneNumber, departmentName, staffName,visitiStatus) async {
+  Future<void> registerVisitor_to_Department(String visitorName, email,
+      phoneNumber, departmentName, staffName, visitiStatus) async {
     String formattedDate = DateFormat('dd-MM-yyyy').format(nowDate);
     await FirebaseFirestore.instance
         .collection("VisitorsOfDepartment")
@@ -34,7 +34,8 @@ class DataSever {
       "PhoneNumber": phoneNumber,
       "Department": departmentName,
       "StaffVisited": staffName,
-      "VisitiStatus":visitiStatus,
+      "VisitiStatus": visitiStatus,
+      "ServiceStatus": "NotAttende",
       "Date": formattedDate,
     });
   }

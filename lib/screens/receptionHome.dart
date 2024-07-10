@@ -33,17 +33,6 @@ class _ReceptionhomeState extends State<Receptionhome> {
         child: Profilescreen(),
       ),
       body: ReceptionMainMenuScreen(),
-
-      //  /screenList.elementAt(_selectedScreen),
-      // bottomNavigationBar: BottomNavigationBar(
-      //     onTap: onSelect,
-      //     currentIndex: _selectedScreen,
-      //     items: [
-      //       BottomNavigationBarItem(
-      //           icon: Icon(Icons.group), label: "Visitors"),
-      //       BottomNavigationBarItem(
-      //           icon: Icon(Icons.home_max_sharp), label: "Home"),
-      //     ])
     );
   }
 }

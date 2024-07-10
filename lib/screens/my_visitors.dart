@@ -1,18 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:visitors/screens/visitor_details.dart';
 import 'package:visitors/widget/utils/colors.dart';
+import 'package:visitors/widget/widget.dart';
 
-class Staffvisitorview extends StatefulWidget {
-  const Staffvisitorview({super.key});
+class MyVisitors extends StatefulWidget {
+  const MyVisitors({super.key});
 
   @override
-  State<Staffvisitorview> createState() => _StaffvisitorviewState();
+  State<MyVisitors> createState() => _MyVisitorsState();
 }
 
 FirebaseAuth _auth = FirebaseAuth.instance;
 
-class _StaffvisitorviewState extends State<Staffvisitorview> {
+class _MyVisitorsState extends State<MyVisitors> {
   @override
   Widget build(BuildContext context) {
     print(_auth.currentUser!.email.toString());
@@ -43,15 +45,24 @@ class _StaffvisitorviewState extends State<Staffvisitorview> {
             children: snapshot.data!.docs.map((DocumentSnapshot document) {
               Map<String, dynamic> data =
                   document.data()! as Map<String, dynamic>;
-              return Card(
-                child: ListTile(
-                  leading: CircleAvatar(
-                    child: Center(
-                      child: Icon(Icons.person),
+              return InkWell(
+                onTap: () {
+                  nextScreen(
+                      context,
+                      VisitorDetails(
+                          phoneNumber: data['PhoneNumber'].toString()));
+                },
+                child: Card(
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      child: Center(
+                        child: Icon(Icons.person),
+                      ),
                     ),
+                    title: Text(data['FullName']),
+                    subtitle: Text(data['PhoneNumber']),
+                    trailing: Icon(Icons.arrow_forward_ios),
                   ),
-                  title: Text(data['FullName']),
-                  subtitle: Text(data['PhoneNumber']),
                 ),
               );
             }).toList(),

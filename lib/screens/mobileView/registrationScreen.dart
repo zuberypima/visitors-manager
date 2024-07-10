@@ -53,16 +53,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 10,
             ),
-            Divider(),
-            Text(
-              "StaffID",
-              style: TextStyle(fontWeight: FontWeight.w500),
-            ),
-            CustomTextFormFieldOne(
-              hintText: "IT0001",
-              nameControler: _staffID,
-              obscureText: false,
-            ),
             SizedBox(
               height: 10,
             ),
@@ -114,11 +104,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         .createUserAccount(
                             context, _emailController.text, _password.text)
                         .then((context) => Mobiledataservices().adduserDetails(
-                            _firstName.text,
-                            _lastName.text,
-                            _emailController.text,
-                            _phoneNumber.text,
-                            _staffID.text));
+                              _firstName.text,
+                              _lastName.text,
+                              _emailController.text,
+                              _phoneNumber.text,
+                            ));
                   },
                   child: Text("Register")),
             ),

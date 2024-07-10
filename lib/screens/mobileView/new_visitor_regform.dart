@@ -22,6 +22,12 @@ TextEditingController fullNameController = TextEditingController();
 TextEditingController emailController = TextEditingController();
 TextEditingController mobileController = TextEditingController();
 
+void clearForm() {
+  fullNameController.clear();
+  emailController.clear();
+  mobileController.clear();
+}
+
 class _RegisterNewVisitorState extends State<RegisterNewVisitor> {
   @override
   Widget build(BuildContext context) {
@@ -121,7 +127,6 @@ class _RegisterNewVisitorState extends State<RegisterNewVisitor> {
                   Text(provider.selectedStaffMember),
                 ],
               ),
-
               Padding(
                 padding: const EdgeInsets.only(left: 10, right: 10, top: 20),
                 child: SizedBox(
@@ -145,6 +150,11 @@ class _RegisterNewVisitorState extends State<RegisterNewVisitor> {
                               provider.selectedDepartment,
                               provider.selectedStaffMember,
                               "CheckIn");
+
+                          // Functions to clear form after submited.
+                          provider.getSelectedDepartmant('No selected');
+                          provider.getSelectedStaffMember('No selecte');
+                          clearForm();
                           Navigator.pop(context);
                         });
                       },

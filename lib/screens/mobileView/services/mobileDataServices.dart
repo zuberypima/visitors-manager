@@ -6,7 +6,6 @@ class Mobiledataservices {
     _lastName,
     _emailAddress,
     _phoneNumber,
-    _staffID,
   ) async {
     return await FirebaseFirestore.instance
         .collection("UserDatils") // Change to "departments"
@@ -16,7 +15,6 @@ class Mobiledataservices {
       "LastName": _lastName,
       "Email": _emailAddress,
       "PhoneNumber": _phoneNumber,
-      "StaffId": _staffID,
       "DepartmentName": "NoDepartment",
       "AccessPriveratge": "None",
     });

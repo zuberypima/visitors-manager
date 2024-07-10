@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:visitors/screens/mobileView/loginScreen.dart';
 import 'package:visitors/screens/mobileView/services/authServices.dart';
 import 'package:visitors/screens/provider/data_provider.dart';
+import 'package:visitors/screens/visitor_details.dart';
 import 'screens/provider/dataSelectedPRovider.dart';
 import 'screens/provider/widgetprovider.dart';
 
@@ -58,6 +59,6 @@ class MyApp extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             }));
-    // home: HomePage());
+    //home: VisitorDetails(phoneNumber: '0712115689'));
   }
 }

@@ -3,7 +3,7 @@ import 'package:visitors/screens/reportContainer.dart';
 import 'package:visitors/screens/mobileView/departmentMobileView.dart';
 import 'package:visitors/screens/mobileView/mobileVisitorsView.dart';
 import 'package:visitors/screens/mobileView/profileScreen.dart';
-import 'package:visitors/screens/mobileView/registerNewVisitor.dart';
+import 'package:visitors/screens/mobileView/new_visitor_regform.dart';
 import 'package:visitors/screens/mobileView/staffMobileview.dart';
 import 'package:visitors/widget/utils/colors.dart';
 
